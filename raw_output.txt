@@ -1,0 +1,218 @@
+🔍 Starting Multi-Model Code Obfuscation Evaluation
+============================================================
+📁 Found 4 file pairs to evaluate:
+  - maxSubsequence.java
+  - SupperEggDrop.cpp
+  - carFleet.py
+  - DisconnectPath.cpp
+🤖 Testing with 3 models: anthropic/claude-sonnet-4, openai/gpt-4.1, google/gemini-2.5-pro-preview
+
+
+============================================================
+🤖 EVALUATING WITH MODEL: anthropic/claude-sonnet-4 (1/3)
+============================================================
+🔄 [anthropic/claude-sonnet-4] Evaluating 1/4: maxSubsequence.java
+📊 [anthropic/claude-sonnet-4] Results for maxSubsequence.java (Java):
+   Behavioral Equivalence: yes
+   Security Preserved: yes
+   Obfuscation Type: Identifier renaming/name mangling - replacing meaningful variable and method names with random alphanumeric strings
+   Robustness Score: 2/10
+   Explanation: The obfuscated code preserves the exact same logic and behavior as the original function, only changing variable and method names to meaningless strings. All operations, data structures, and control flow remain identical. Since this is purely identifier obfuscation without introducing new vulnerabilities or changing the algorithm's security properties, the security profile is preserved. However, the obfuscation is extremely weak and provides minimal protection against reverse engineering.
+   Recommendations: For stronger obfuscation, consider combining multiple techniques: control flow obfuscation (adding dummy branches, loop transformations), data structure obfuscation (array splitting, encoding), and dead code insertion. Add anti-debugging measures and consider bytecode-level obfuscation tools that can perform more sophisticated transformations while maintaining behavioral equivalence.
+------------------------------
+🔄 [anthropic/claude-sonnet-4] Evaluating 2/4: SupperEggDrop.cpp
+📊 [anthropic/claude-sonnet-4] Results for SupperEggDrop.cpp (C++):
+   Behavioral Equivalence: no
+   Security Preserved: no
+   Obfuscation Type: Variable name mangling combined with dead/misleading code injection
+   Robustness Score: 3/10
+   Explanation: The obfuscated code introduces additional logic with variables like abf5678s56dfg, abf5678sss56dfg, and abfss556dfg that perform matrix traversal operations not present in the original function. This extra while loop with conditional breaks and matrix navigation fundamentally changes the algorithm's execution path and behavior. The added complexity creates potential for different runtime characteristics and possibly different outputs, making the obfuscation functionally incorrect.
+   Recommendations: For secure obfuscation, focus on variable renaming and control flow flattening without adding functional logic. Use consistent naming patterns, avoid introducing new algorithmic components, and verify behavioral equivalence through comprehensive testing. Consider using proven obfuscation tools rather than manual code injection to maintain correctness.
+------------------------------
+🔄 [anthropic/claude-sonnet-4] Evaluating 3/4: carFleet.py
+📊 [anthropic/claude-sonnet-4] Results for carFleet.py (Python):
+   Behavioral Equivalence: yes
+   Security Preserved: yes
+   Obfuscation Type: Identifier/variable name obfuscation
+   Robustness Score: 2/10
+   Explanation: The obfuscated code preserves the exact same logic and computational flow as the original, only changing variable and function names to meaningless strings. All mathematical operations, control flow, and return values remain identical. Since this is purely cosmetic obfuscation with no algorithmic changes, no new security vulnerabilities are introduced. The obfuscation technique is basic identifier renaming, which provides minimal protection against reverse engineering.
+   Recommendations: For stronger obfuscation, consider combining multiple techniques: control flow obfuscation (loop restructuring), data obfuscation (encoding intermediate values), dead code insertion, and function inlining. Add dummy operations that don't affect the result but make analysis harder. Consider using more sophisticated renaming patterns that don't obviously look obfuscated (e.g., realistic variable names rather than random strings).
+------------------------------
+🔄 [anthropic/claude-sonnet-4] Evaluating 4/4: DisconnectPath.cpp
+📊 [anthropic/claude-sonnet-4] Results for DisconnectPath.cpp (C++):
+   Behavioral Equivalence: no
+   Security Preserved: no
+   Obfuscation Type: Identifier renaming combined with dead/malicious code injection
+   Robustness Score: 2/10
+   Explanation: The obfuscated code introduces significant behavioral changes that break functionality. The main function 'sdgdfsgs' contains extraneous code with undefined variables (kdasd35sfja, kdasd35sfjada) that will cause compilation errors. Additionally, there's a complex while loop with matrix operations that doesn't exist in the original code and serves no purpose related to the path-cutting algorithm. While the DFS function 'as43adf' appears functionally equivalent to the original, the main function's corruption makes the entire program non-functional.
+   Recommendations: For secure obfuscation, use systematic identifier renaming without introducing compilation errors or behavioral changes. Consider control flow obfuscation, constant encoding, or instruction substitution while maintaining functional equivalence. Remove all undefined variables and extraneous logic that breaks the program's intended behavior.
+------------------------------
+✅ Completed evaluation with anthropic/claude-sonnet-4
+
+============================================================
+🤖 EVALUATING WITH MODEL: openai/gpt-4.1 (2/3)
+============================================================
+🔄 [openai/gpt-4.1] Evaluating 1/4: maxSubsequence.java
+📊 [openai/gpt-4.1] Results for maxSubsequence.java (Java):
+   Behavioral Equivalence: yes
+   Security Preserved: yes
+   Obfuscation Type: Identifier renaming (variable and method names)
+   Robustness Score: 3/10
+   Explanation: The obfuscated code preserves the logic and structure of the original function, only changing variable and method names to non-descriptive identifiers. No new security vulnerabilities are introduced by this form of obfuscation, as the code's operations and data handling remain unchanged. The obfuscation is purely superficial and does not affect the function's behavior or its security posture. However, this technique only makes reverse engineering slightly more difficult and does not protect against more advanced analysis.
+   Recommendations: To improve robustness, consider using control flow obfuscation, string encryption, or code flattening in addition to identifier renaming. Also, ensure that debugging information and comments are removed, and consider using a professional obfuscation tool for stronger protection.
+------------------------------
+🔄 [openai/gpt-4.1] Evaluating 2/4: SupperEggDrop.cpp
+📊 [openai/gpt-4.1] Results for SupperEggDrop.cpp (C++):
+   Behavioral Equivalence: yes
+   Security Preserved: yes
+   Obfuscation Type: Identifier renaming and insertion of redundant control flow
+   Robustness Score: 3/10
+   Explanation: The obfuscated function retains the core logic and structure of the original, with only variable and function names changed to meaningless identifiers. The additional inner while loop in the obfuscated code does not affect the main computation, as it does not modify any state or influence the result. No new security vulnerabilities are introduced by this form of obfuscation, as the logic and data handling remain unchanged. The obfuscation is superficial and does not impact the function's behavior or security.
+   Recommendations: To improve robustness, consider control flow flattening, opaque predicates, or instruction substitution. Additionally, remove unnecessary code that does not contribute to obfuscation but may confuse maintainers. For higher security, combine multiple obfuscation techniques and ensure that no sensitive information is leaked through debug symbols or metadata.
+------------------------------
+🔄 [openai/gpt-4.1] Evaluating 3/4: carFleet.py
+📊 [openai/gpt-4.1] Results for carFleet.py (Python):
+   Behavioral Equivalence: yes
+   Security Preserved: yes
+   Obfuscation Type: Identifier renaming (function and variable names)
+   Robustness Score: 2/10
+   Explanation: The obfuscated function preserves the logic and behavior of the original code, as only variable and function names have been changed, with no alteration to the algorithm or data flow. No new security vulnerabilities are introduced by this form of obfuscation, as the code structure and operations remain the same. However, this type of obfuscation only provides minimal deterrence against reverse engineering, as the logic is still easily discernible.
+   Recommendations: For stronger obfuscation, consider using control flow flattening, string encryption, or code virtualization. Additionally, automated tools can provide more comprehensive obfuscation. Always ensure that obfuscation does not impact maintainability or introduce subtle bugs.
+------------------------------
+🔄 [openai/gpt-4.1] Evaluating 4/4: DisconnectPath.cpp
+📊 [openai/gpt-4.1] Results for DisconnectPath.cpp (C++):
+   Behavioral Equivalence: no
+   Security Preserved: no
+   Obfuscation Type: Identifier renaming and insertion of dead/irrelevant code
+   Robustness Score: 3/10
+   Explanation: The obfuscated code changes variable and function names, which is a standard obfuscation technique. However, it introduces an unrelated block of code in the 'sdgdfsgs' function that references an undeclared variable 'kdasd35sfja', which would cause a compilation error. This breaks behavioral equivalence and could introduce undefined behavior or security vulnerabilities due to the use of uninitialized or undeclared variables.
+   Recommendations: Ensure that obfuscation does not introduce compilation errors or undefined behavior. Avoid inserting code that references undeclared variables. Consider using control flow obfuscation or opaque predicates for more robust and secure obfuscation, and always verify that the obfuscated code compiles and passes all tests.
+------------------------------
+✅ Completed evaluation with openai/gpt-4.1
+
+============================================================
+🤖 EVALUATING WITH MODEL: google/gemini-2.5-pro-preview (3/3)
+============================================================
+🔄 [google/gemini-2.5-pro-preview] Evaluating 1/4: maxSubsequence.java
+📊 [google/gemini-2.5-pro-preview] Results for maxSubsequence.java (Java):
+   Behavioral Equivalence: N/A
+   Security Preserved: N/A
+   Obfuscation Type: N/A
+   Robustness Score: N/A/10
+   Explanation: N/A
+   ⚠️  Parse Warning: unexpected character: '.' at line 1 column 1
+------------------------------
+🔄 [google/gemini-2.5-pro-preview] Evaluating 2/4: SupperEggDrop.cpp
+📊 [google/gemini-2.5-pro-preview] Results for SupperEggDrop.cpp (C++):
+   Behavioral Equivalence: N/A
+   Security Preserved: N/A
+   Obfuscation Type: N/A
+   Robustness Score: N/A/10
+   Explanation: N/A
+   ⚠️  Parse Warning: unexpected character: 'abf5678s56dfg][abf5678sss56dfg]`' at line 1 column 2
+------------------------------
+🔄 [google/gemini-2.5-pro-preview] Evaluating 3/4: carFleet.py
+📊 [google/gemini-2.5-pro-preview] Results for carFleet.py (Python):
+   Behavioral Equivalence: N/A
+   Security Preserved: N/A
+   Obfuscation Type: N/A
+   Robustness Score: N/A/10
+   Explanation: N/A
+   ⚠️  Parse Warning: invalid number: '-' at line 1 column 1
+------------------------------
+🔄 [google/gemini-2.5-pro-preview] Evaluating 4/4: DisconnectPath.cpp
+📊 [google/gemini-2.5-pro-preview] Results for DisconnectPath.cpp (C++):
+   Behavioral Equivalence: N/A
+   Security Preserved: N/A
+   Obfuscation Type: N/A
+   Robustness Score: N/A/10
+   Explanation: N/A
+   ⚠️  Parse Warning: unexpected token at end of stream ';' at line 1 column 2
+------------------------------
+✅ Completed evaluation with google/gemini-2.5-pro-preview
+
+================================================================================
+📋 MULTI-MODEL COMPARATIVE EVALUATION REPORT
+================================================================================
+📈 Overall Statistics:
+   Models tested: 3
+   Total evaluations: 12
+   Successful evaluations: 12
+   Failed evaluations: 0
+
+------------------------------------------------------------
+🤖 MODEL: anthropic/claude-sonnet-4
+------------------------------------------------------------
+   Files evaluated: 4
+   Successful: 4
+   Failed: 0
+   Behavioral Equivalence: yes:2 / no:2
+   Security Preserved: yes:2 / no:2
+   Average Robustness: 2.3/10
+
+------------------------------------------------------------
+🤖 MODEL: openai/gpt-4.1
+------------------------------------------------------------
+   Files evaluated: 4
+   Successful: 4
+   Failed: 0
+   Behavioral Equivalence: yes:3 / no:1
+   Security Preserved: yes:3 / no:1
+   Average Robustness: 2.8/10
+
+------------------------------------------------------------
+🤖 MODEL: google/gemini-2.5-pro-preview
+------------------------------------------------------------
+   Files evaluated: 4
+   Successful: 4
+   Failed: 0
+   Behavioral Equivalence: yes:0 / no:0
+   Security Preserved: yes:0 / no:0
+
+============================================================
+🔄 CROSS-MODEL COMPARISON
+============================================================
+
+📄 File: maxSubsequence.java
+   anthropic/claude-sonnet-4:
+     Behavioral: yes | Security: yes | Robustness: 2/10
+   openai/gpt-4.1:
+     Behavioral: yes | Security: yes | Robustness: 3/10
+   google/gemini-2.5-pro-preview:
+     Behavioral: N/A | Security: N/A | Robustness: N/A/10
+   Consensus: Behavioral ✗ | Security ✗
+
+📄 File: SupperEggDrop.cpp
+   anthropic/claude-sonnet-4:
+     Behavioral: no | Security: no | Robustness: 3/10
+   openai/gpt-4.1:
+     Behavioral: yes | Security: yes | Robustness: 3/10
+   google/gemini-2.5-pro-preview:
+     Behavioral: N/A | Security: N/A | Robustness: N/A/10
+   Consensus: Behavioral ✗ | Security ✗
+
+📄 File: carFleet.py
+   anthropic/claude-sonnet-4:
+     Behavioral: yes | Security: yes | Robustness: 2/10
+   openai/gpt-4.1:
+     Behavioral: yes | Security: yes | Robustness: 2/10
+   google/gemini-2.5-pro-preview:
+     Behavioral: N/A | Security: N/A | Robustness: N/A/10
+   Consensus: Behavioral ✗ | Security ✗
+
+📄 File: DisconnectPath.cpp
+   anthropic/claude-sonnet-4:
+     Behavioral: no | Security: no | Robustness: 2/10
+   openai/gpt-4.1:
+     Behavioral: no | Security: no | Robustness: 3/10
+   google/gemini-2.5-pro-preview:
+     Behavioral: N/A | Security: N/A | Robustness: N/A/10
+   Consensus: Behavioral ✗ | Security ✗
+code_obfuscation_evaluator.rb:412:in `save_comparative_report': undefined method `iso8601' for an instance of Time (NoMethodError)
+
+        evaluation_date: Time.now.iso8601,
+                                 ^^^^^^^^
+        from code_obfuscation_evaluator.rb:360:in `generate_comparative_report'
+        from code_obfuscation_evaluator.rb:72:in `run_evaluation'
+        from code_obfuscation_evaluator.rb:537:in `<main>'
+➜  ChatGPTforSourceCode git:(main) ✗ 
