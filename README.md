@@ -122,12 +122,29 @@ The original paper (2020-2021) using CodeBERT/GraphCodeBERT found:
 
 Modern LLMs demonstrate dramatically improved code analysis capabilities compared to models tested in the original 2020-2021 research. The ability to understand code logic independent of naming conventions has substantially advanced.
 
+### Do Variable Names Still Matter?
+
+**For Code Analysis Tasks: NO** - Our results show modern LLMs can easily analyze through obfuscated variable names
+
+**For Code Generation/Assistance: YES** - While not tested here, meaningful variable names likely still improve:
+
+- Code completion accuracy
+- Documentation generation
+- Debugging assistance
+- Code explanation quality
+
+**Key Distinction**:
+
+- **Analysis tasks** (understanding existing code) - LLMs now rely on logical structure
+- **Generation tasks** (writing new code) - Meaningful names probably still help context
+
 ### Implications for Code Obfuscation
 
-1. **Basic techniques are obsolete**: Simple identifier renaming provides no protection
+1. **Basic techniques are obsolete**: Simple identifier renaming provides no protection against analysis
 2. **Quality matters**: Obfuscation that breaks functionality is counterproductive
 3. **Sophistication required**: Effective obfuscation needs advanced techniques beyond naming
 4. **Model differences**: Different LLMs show varying levels of analysis rigor
+5. **Context dependency**: Variable name importance varies by task type
 
 ### Recommendations for Future Research
 
